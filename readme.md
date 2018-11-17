@@ -48,7 +48,8 @@ register (i.e. `AL`). il2cpp, however, instead of declaring the return value as
 a `bool`, declares it as `int32_t`. This will take the full 32-bit value from the
 return register (i.e. `EAX`). With the `static_cast<bool>` performed, any bit set
 to `1` in `returnValue` will cause the casted value to become `true`. In our case,
-our return value is `0xffffff00`, which is a true value.
+our return value is `0xffffff00`, which casts to a true value, even though the
+actual boolean value should resolve to false.
 
 Remedy
 ------
